@@ -35,8 +35,8 @@ def part_2(measurements: list[int]) -> int:
     :return: Number of times a three-measurement sliding window increased
     """
     three_measurement_sliding_window = [
-        measurement_1 + measurement_2 + measurement_3 for
-        measurement_1, measurement_2, measurement_3 in
+        sum(three_measurement_sliding_window) for
+        three_measurement_sliding_window in
         zip(measurements, measurements[1:], measurements[2:])]
     return part_1(three_measurement_sliding_window)
 
