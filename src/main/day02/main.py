@@ -1,6 +1,7 @@
 """
 https://adventofcode.com/2021/day/2
 """
+
 from typing import NamedTuple
 
 
@@ -10,8 +11,7 @@ class Command(NamedTuple):
 
 
 def data_input(filename: str = "data") -> list[Command]:
-    """
-    Reading commands from data.
+    """Reading commands from data.
 
     :param filename: Filename
     :return: List of commands
@@ -22,8 +22,7 @@ def data_input(filename: str = "data") -> list[Command]:
 
 
 def part_1(commands: list[Command]) -> int:
-    """
-    Part 1.
+    """Part 1.
 
     :param commands: List of commands
     :return: Product of final horizontal position and final depth
@@ -39,8 +38,7 @@ def part_1(commands: list[Command]) -> int:
 
 
 def part_2(commands: list[Command]) -> int:
-    """
-    Part 2.
+    """Part 2.
 
     :param commands: List commands
     :return: Product of final horizontal position and final depth
@@ -62,9 +60,7 @@ def part_2(commands: list[Command]) -> int:
 
 
 def main() -> None:
-    """
-    Main function.
-    """
+    """Main function."""
     commands = data_input()
     print(part_1(commands))
     print(part_2(commands))

@@ -1,6 +1,7 @@
 """
 https://adventofcode.com/2021/day/3
 """
+
 from collections import Counter
 
 
@@ -9,8 +10,7 @@ class BinaryNumber(str):
 
 
 def data_input(filename: str = "data") -> list[BinaryNumber]:
-    """
-    Reading diagnostic report.
+    """Read diagnostic report.
 
     :param filename: Filename
     :return: Diagnostic report
@@ -20,8 +20,7 @@ def data_input(filename: str = "data") -> list[BinaryNumber]:
 
 
 def determine_gamma_rate(diagnostic_report: list[BinaryNumber]) -> int:
-    """
-    Determine gamma rate.
+    """Determine gamma rate.
 
     :param diagnostic_report: Diagnostic report
     :return: Gamma rate
@@ -33,8 +32,7 @@ def determine_gamma_rate(diagnostic_report: list[BinaryNumber]) -> int:
 
 
 def determine_epsilon_rate(diagnostic_report: list[BinaryNumber]) -> int:
-    """
-    Determine epsilon rate.
+    """Determine epsilon rate.
 
     :param diagnostic_report: Diagnostic report
     :return: Epsilon rate
@@ -49,8 +47,7 @@ def determine_epsilon_rate(diagnostic_report: list[BinaryNumber]) -> int:
 
 def determine_oxygen_generator_rating(
         diagnostic_report: list[BinaryNumber]) -> int:
-    """
-    Determine oxygen generator rating.
+    """Determine oxygen generator rating.
 
     :param diagnostic_report: Diagnostic report
     :return: Oxygen generator rating
@@ -70,8 +67,7 @@ def determine_oxygen_generator_rating(
 
 def determine_co2_scrubber_rating(
         diagnostic_report: list[BinaryNumber]) -> int:
-    """
-    Determine CO2 scrubber rating.
+    """Determine CO2 scrubber rating.
 
     :param diagnostic_report: Diagnostic report
     :return: CO2 scrubber rating
@@ -90,8 +86,7 @@ def determine_co2_scrubber_rating(
 
 
 def part_1(diagnostic_report: list[BinaryNumber]) -> int:
-    """
-    Part 1.
+    """Part 1.
 
     :param diagnostic_report: Diagnostic report
     :return: Power consumption
@@ -101,8 +96,7 @@ def part_1(diagnostic_report: list[BinaryNumber]) -> int:
 
 
 def part_2(diagnostic_report: list[BinaryNumber]) -> int:
-    """
-    Part 2.
+    """Part 2.
 
     :param diagnostic_report: Diagnostic report
     :return: Life support rating
@@ -112,9 +106,7 @@ def part_2(diagnostic_report: list[BinaryNumber]) -> int:
 
 
 def main() -> None:
-    """
-    Main function.
-    """
+    """Main function."""
     diagnostic_report = data_input()
     print(part_1(diagnostic_report))
     print(part_2(diagnostic_report))
@@ -122,8 +114,7 @@ def main() -> None:
 
 def _transpose_binary_numbers(diagnostic_report: list[BinaryNumber]) -> \
         list[BinaryNumber]:
-    """
-    Transpose a list of binary numbers.
+    """Transpose a list of binary numbers.
 
     :param diagnostic_report: Diagnostic report
     :return: List of binary numbers
@@ -134,8 +125,7 @@ def _transpose_binary_numbers(diagnostic_report: list[BinaryNumber]) -> \
 
 
 def _determine_most_common_bit(binary_number: BinaryNumber) -> str:
-    """
-    Determine the most common bit of a binary number.
+    """Determine the most common bit of a binary number.
 
     :param binary_number: Binary number
     :return: The most common bit
@@ -150,8 +140,7 @@ def _determine_most_common_bit(binary_number: BinaryNumber) -> str:
 
 
 def _determine_least_common_bit(binary_number: BinaryNumber) -> str:
-    """
-    Determine the least common bit of a binary number.
+    """Determine the least common bit of a binary number.
 
     :param binary_number: Binary number
     :return: The least common bit

@@ -10,14 +10,10 @@ from src.main.day03.main import data_input, \
 
 
 class TestDay03(unittest.TestCase):
-    """
-    Test class for day 03.
-    """
+    """Test class for day 03."""
 
     def test_determine_gamma_rate(self) -> None:
-        """
-        Testing determine_gamma_rate
-        """
+        """Testing determine_gamma_rate."""
         subtest_list: list[tuple[str, int]] = [("test_data_1", 22)]
         for filename, expected_result in subtest_list:
             with self.subTest():
@@ -26,9 +22,7 @@ class TestDay03(unittest.TestCase):
                                  determine_gamma_rate(diagnostic_report))
 
     def test_determine_epsilon_rate(self) -> None:
-        """
-        Testing determine_epsilon_rate
-        """
+        """Testing determine_epsilon_rate."""
         subtest_list: list[tuple[str, int]] = [("test_data_1", 9)]
         for filename, expected_result in subtest_list:
             with self.subTest():
@@ -37,9 +31,7 @@ class TestDay03(unittest.TestCase):
                                  determine_epsilon_rate(diagnostic_report))
 
     def test_part_1(self) -> None:
-        """
-        Testing part_1
-        """
+        """Testing part_1."""
         subtest_list: list[tuple[str, int]] = [("test_data_1", 198),
                                                ("data", 2261546)]
         for filename, expected_result in subtest_list:
@@ -48,9 +40,7 @@ class TestDay03(unittest.TestCase):
                 self.assertEqual(expected_result, part_1(diagnostic_report))
 
     def test_determine_oxygen_generator_rating(self) -> None:
-        """
-        Testing determine_oxygen_generator_rating
-        """
+        """Testing determine_oxygen_generator_rating."""
         subtest_list: list[tuple[str, int]] = [("test_data_1", 23)]
         for filename, expected_result in subtest_list:
             with self.subTest():
@@ -60,9 +50,7 @@ class TestDay03(unittest.TestCase):
                                      diagnostic_report))
 
     def test_determine_co2_scrubber_rating(self) -> None:
-        """
-        Testing determine_co2_scrubber_rating
-        """
+        """Testing determine_co2_scrubber_rating."""
         subtest_list: list[tuple[str, int]] = [("test_data_1", 10)]
         for filename, expected_result in subtest_list:
             with self.subTest():
@@ -72,9 +60,7 @@ class TestDay03(unittest.TestCase):
                                      diagnostic_report))
 
     def test_part_2(self) -> None:
-        """
-        Testing part_2
-        """
+        """Testing part_2."""
         subtest_list: list[tuple[str, int]] = [("test_data_1", 230),
                                                ("data", 6775520)]
         for filename, expected_result in subtest_list:

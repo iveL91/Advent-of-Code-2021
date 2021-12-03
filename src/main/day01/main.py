@@ -4,8 +4,7 @@ https://adventofcode.com/2021/day/1
 
 
 def data_input(filename: str = "data") -> list[int]:
-    """
-    Reading measurements of sea floor depths.
+    """Reading measurements of sea floor depths.
 
     :param filename: Filename
     :return: List of measurements of sea floor depths
@@ -15,8 +14,7 @@ def data_input(filename: str = "data") -> list[int]:
 
 
 def part_1(measurements: list[int]) -> int:
-    """
-    Part 1.
+    """Part 1.
 
     :param measurements: List of measurements of the sea floor depths
     :return: Number of times a depth measurement increases from the previous
@@ -28,8 +26,7 @@ def part_1(measurements: list[int]) -> int:
 
 
 def part_2(measurements: list[int]) -> int:
-    """
-    Part 2.
+    """Part 2.
 
     :param measurements: List of measurements of the sea floor depths
     :return: Number of times a three-measurement sliding window increased
@@ -42,9 +39,7 @@ def part_2(measurements: list[int]) -> int:
 
 
 def main() -> None:
-    """
-    Main function.
-    """
+    """Main function."""
     measurements = data_input()
     print(part_1(measurements))
     print(part_2(measurements))
