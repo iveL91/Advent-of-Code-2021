@@ -14,21 +14,13 @@ class TestDay03(unittest.TestCase):
 
     def test_determine_gamma_rate(self) -> None:
         """Testing determine_gamma_rate."""
-        subtest_list: list[tuple[str, int]] = [("test_data_1", 22)]
-        for filename, expected_result in subtest_list:
-            with self.subTest():
-                diagnostic_report = data_input("../test/day03/" + filename)
-                self.assertEqual(expected_result,
-                                 determine_gamma_rate(diagnostic_report))
+        diagnostic_report = data_input("../test/day03/test_data_1")
+        self.assertEqual(22, determine_gamma_rate(diagnostic_report))
 
     def test_determine_epsilon_rate(self) -> None:
         """Testing determine_epsilon_rate."""
-        subtest_list: list[tuple[str, int]] = [("test_data_1", 9)]
-        for filename, expected_result in subtest_list:
-            with self.subTest():
-                diagnostic_report = data_input("../test/day03/" + filename)
-                self.assertEqual(expected_result,
-                                 determine_epsilon_rate(diagnostic_report))
+        diagnostic_report = data_input("../test/day03/test_data_1")
+        self.assertEqual(9, determine_epsilon_rate(diagnostic_report))
 
     def test_part_1(self) -> None:
         """Testing part_1."""
@@ -41,23 +33,14 @@ class TestDay03(unittest.TestCase):
 
     def test_determine_oxygen_generator_rating(self) -> None:
         """Testing determine_oxygen_generator_rating."""
-        subtest_list: list[tuple[str, int]] = [("test_data_1", 23)]
-        for filename, expected_result in subtest_list:
-            with self.subTest():
-                diagnostic_report = data_input("../test/day03/" + filename)
-                self.assertEqual(expected_result,
-                                 determine_oxygen_generator_rating(
-                                     diagnostic_report))
+        diagnostic_report = data_input("../test/day03/test_data_1")
+        self.assertEqual(23,
+                         determine_oxygen_generator_rating(diagnostic_report))
 
     def test_determine_co2_scrubber_rating(self) -> None:
         """Testing determine_co2_scrubber_rating."""
-        subtest_list: list[tuple[str, int]] = [("test_data_1", 10)]
-        for filename, expected_result in subtest_list:
-            with self.subTest():
-                diagnostic_report = data_input("../test/day03/" + filename)
-                self.assertEqual(expected_result,
-                                 determine_co2_scrubber_rating(
-                                     diagnostic_report))
+        diagnostic_report = data_input("../test/day03/test_data_1")
+        self.assertEqual(10, determine_co2_scrubber_rating(diagnostic_report))
 
     def test_part_2(self) -> None:
         """Testing part_2."""
