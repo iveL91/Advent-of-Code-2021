@@ -6,7 +6,7 @@ from collections import Counter
 
 
 class BinaryNumber(str):
-    pass
+    """Binary Number."""
 
 
 def data_input(filename: str = "data") -> list[BinaryNumber]:
@@ -53,7 +53,7 @@ def determine_oxygen_generator_rating(
     :return: Oxygen generator rating
     """
     available_binary_numbers = diagnostic_report.copy()
-    for index in range(len(diagnostic_report[0])):
+    for index, _ in enumerate(diagnostic_report[0]):
         binary_numbers = _transpose_binary_numbers(available_binary_numbers)
         most_common_bit = _determine_most_common_bit(binary_numbers[index])
         new_available_binary_numbers = [binary_number for binary_number in
@@ -63,6 +63,7 @@ def determine_oxygen_generator_rating(
         if len(new_available_binary_numbers) == 1:
             return int(new_available_binary_numbers[0], 2)
         available_binary_numbers = new_available_binary_numbers
+    raise Exception
 
 
 def determine_co2_scrubber_rating(
@@ -83,6 +84,7 @@ def determine_co2_scrubber_rating(
         if len(new_available_binary_numbers) == 1:
             return int(new_available_binary_numbers[0], 2)
         available_binary_numbers = new_available_binary_numbers
+    raise Exception
 
 
 def part_1(diagnostic_report: list[BinaryNumber]) -> int:

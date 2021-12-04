@@ -15,8 +15,8 @@ class BoardSquare(NamedTuple):
 class Board(list[list[BoardSquare]]):
     """Board."""
     board_length: int = 5
-    won_instruction: int = None
     number: int
+    _won_instruction: int = None
 
     def __init__(self, rows: list[str], number: int) -> None:
         super().__init__()
@@ -29,25 +29,27 @@ class Board(list[list[BoardSquare]]):
 
     @property
     def is_playable(self) -> bool:
-        return self.won_instruction is None
+        """Check if the board is playable."""
+        return self._won_instruction is None
 
     @property
     def score(self) -> int:
-        return self._sum_of_all_unmarked_numbers() * self.won_instruction
+        """Get the score."""
+        return self._sum_of_all_unmarked_numbers() * self._won_instruction
 
     def play(self, instruction: int) -> None:
         """One play on the board with the given instruction.
 
-        A play consists of marking the number corresponding to the instruction
+        A play consists of marking the squares corresponding to the instruction
         and saving the instruction if the board wins.
 
         :param instruction: Number to mark
         """
-        if self.won_instruction:
+        if self._won_instruction:
             return
         self._mark_board(instruction)
         if self._is_won():
-            self.won_instruction = instruction
+            self._won_instruction = instruction
 
     def _mark_board(self, instruction: int) -> None:
         for row_index, row in enumerate(self):
@@ -57,12 +59,12 @@ class Board(list[list[BoardSquare]]):
                                                                 True)
 
     def _is_won(self) -> bool:
-        return self.won_instruction \
+        return self._won_instruction \
                or self._is_won_on_row() \
                or self._is_won_on_column()
 
     def _is_won_on_row(self) -> bool:
-        return any(all([marked for _, marked in row]) for row in self)
+        return any(all(marked for _, marked in row) for row in self)
 
     def _is_won_on_column(self) -> bool:
         return any(
@@ -114,6 +116,7 @@ def part_1(game: Game) -> int:
         boards = [board for board in boards if board.is_playable]
         if game.won_board_numbers:
             return game.boards[game.won_board_numbers[-1]].score
+    raise Exception
 
 
 def part_2(game: Game) -> int:
@@ -131,7 +134,9 @@ def part_2(game: Game) -> int:
         game.won_board_numbers.extend(
             board.number for board in boards if not board.is_playable)
         boards = [board for board in boards if board.is_playable]
-    return game.boards[game.won_board_numbers[-1]].score
+    if game.won_board_numbers:
+        return game.boards[game.won_board_numbers[-1]].score
+    raise Exception
 
 
 def main() -> None:

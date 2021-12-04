@@ -6,6 +6,7 @@ from typing import NamedTuple
 
 
 class Command(NamedTuple):
+    """Command."""
     movement: str
     amount: int
 
