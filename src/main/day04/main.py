@@ -21,8 +21,8 @@ class Board(list[list[BoardSquare]]):
     def __init__(self, rows: list[str], number: int) -> None:
         super().__init__()
         self.number = number
+        pattern = re.compile(r"\d+")
         for row in rows:
-            pattern = re.compile(r"\d+")
             matches = [BoardSquare(int(number)) for number in
                        re.findall(pattern, row)]
             self.append(matches)
