@@ -1,6 +1,7 @@
 """
 https://adventofcode.com/2021/day/7
 """
+
 from typing import Callable
 
 
@@ -28,6 +29,14 @@ def sum_of_first_n_integers(n: int) -> int:
 
 def determine_minimum_fuel(crab_horizontal_positions: list[int],
                            fuel_function: Callable[[int], int]) -> int:
+    """Determine the minimum fuel for the crabs with respect to a given fuel
+    function.
+
+    :param crab_horizontal_positions: Horizontal positions of the crabs
+    :param fuel_function: A function which describes the fuel needed to move a
+    given amount of positions.
+    :return: Minimum fuel
+    """
     total_fuels = [
         sum(fuel_function(abs(crab_horizontal_position - pos)) for pos in
             crab_horizontal_positions) for crab_horizontal_position
@@ -39,7 +48,7 @@ def determine_minimum_fuel(crab_horizontal_positions: list[int],
 def part_1(crab_horizontal_positions: list[int]) -> int:
     """Part 1.
 
-    :param crab_horizontal_positions: Crab horizontal positions
+    :param crab_horizontal_positions: Horizontal positions of the crabs
     :return: Minimum total fuel for a linear fuel consumption
     """
     return determine_minimum_fuel(crab_horizontal_positions, lambda n: n)
@@ -48,7 +57,7 @@ def part_1(crab_horizontal_positions: list[int]) -> int:
 def part_2(crab_horizontal_positions: list[int]) -> int:
     """Part 2.
 
-    :param crab_horizontal_positions: Crab horizontal positions
+    :param crab_horizontal_positions: Horizontal positions of the crabs
     :return: Minimum total fuel for a quadratic fuel consumption
     """
     return determine_minimum_fuel(crab_horizontal_positions,
