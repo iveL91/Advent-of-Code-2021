@@ -28,12 +28,11 @@ def sum_of_first_n_integers(n: int) -> int:
 
 def determine_minimum_fuel(crab_horizontal_positions: list[int],
                            fuel_function: Callable[[int], int]) -> int:
-    different_crab_horizontal_positions = set(crab_horizontal_positions)
     total_fuels = [
         sum(fuel_function(abs(crab_horizontal_position - pos)) for pos in
             crab_horizontal_positions) for crab_horizontal_position
-        in range(min(different_crab_horizontal_positions),
-                 max(different_crab_horizontal_positions) + 1)]
+        in range(min(crab_horizontal_positions),
+                 max(crab_horizontal_positions) + 1)]
     return min(total_fuels)
 
 
