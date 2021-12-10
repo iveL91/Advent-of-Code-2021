@@ -20,8 +20,8 @@ class TestDay09(unittest.TestCase):
         ]
         for filename, expected_result in subtest_list:
             with self.subTest():
-                data = data_input(self.directory + filename)
-                self.assertEqual(expected_result, part_1(data))
+                heightmap = data_input(self.directory + filename)
+                self.assertEqual(expected_result, part_1(heightmap))
 
     def test_part_2(self) -> None:
         """Testing part_2."""
@@ -31,8 +31,8 @@ class TestDay09(unittest.TestCase):
         ]
         for filename, expected_result in subtest_list:
             with self.subTest():
-                area = data_input(self.directory + filename)
-                self.assertEqual(expected_result, part_2(area))
+                heightmap = data_input(self.directory + filename)
+                self.assertEqual(expected_result, part_2(heightmap))
 
 
 if __name__ == '__main__':
