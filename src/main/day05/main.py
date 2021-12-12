@@ -4,9 +4,9 @@ https://adventofcode.com/2021/day/5
 
 import re
 from collections import defaultdict
-from typing import TypeAlias
+from typing import NewType
 
-Instruction: TypeAlias = tuple[complex, complex]
+Instruction = NewType("Instruction", tuple[complex, complex])
 
 
 class Plane(defaultdict):
@@ -72,10 +72,9 @@ def data_input(filename: str = "data") -> list[Instruction]:
     :return: Instructions
     """
     with open(filename) as file:
-        rows = file.read().splitlines()
         pattern = re.compile(r"(\d+),(\d+) -> (\d+),(\d+)")
         instructions: list[Instruction] = []
-        for row in rows:
+        for row in file.read().splitlines():
             match = re.match(pattern, row)
             instructions.append(Instruction((complex(int(match.group(1)),
                                                      int(match.group(2))),

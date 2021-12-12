@@ -3,10 +3,9 @@ https://adventofcode.com/2021/day/3
 """
 
 from collections import Counter
+from typing import NewType
 
-
-class BinaryNumber(str):
-    """Binary Number."""
+BinaryNumber = NewType("BinaryNumber", str)
 
 
 def data_input(filename: str = "data") -> list[BinaryNumber]:

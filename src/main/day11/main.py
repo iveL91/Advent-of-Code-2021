@@ -25,9 +25,12 @@ class Octopus:
 
 class OctopusesGrid(list[list[Octopus]]):
     """Grid of octopuses."""
-    total_flashes: int = 0
-    flashed_octopuses: set[Octopus] = None
-    amount_of_steps: int = 0
+
+    def __init__(self, *args) -> None:
+        super().__init__(*args)
+        self.total_flashes: int = 0
+        self.flashed_octopuses: set[Octopus] = None
+        self.amount_of_steps: int = 0
 
     @property
     def grid_size(self) -> int:

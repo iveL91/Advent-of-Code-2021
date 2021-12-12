@@ -9,12 +9,12 @@ from collections import defaultdict
 class CaveSystem:
     """Cave system."""
 
-    def __init__(self, connections: list[tuple[str, str]]):
-        self.connected_to = defaultdict(set[str])
+    def __init__(self, connections: list[tuple[str, ...]]):
+        self.connected_to: defaultdict[str, set[str]] = defaultdict(set[str])
         for connection in connections:
             self.connected_to[connection[0]].add(connection[1])
             self.connected_to[connection[1]].add(connection[0])
-        self.paths = []
+        self.paths: list[list[str]] = []
 
     def determine_paths(self, current_path: list[str] = None,
                         small_caves_can_be_visited_twice=True) -> None:
@@ -48,10 +48,11 @@ def data_input(filename: str = "data") -> CaveSystem:
     :return: Cave system
     """
     with open(filename) as file:
-        rows = file.read().splitlines()
         pattern = re.compile(r"([A-Za-z]+)-([A-Za-z]+)")
-        connections: list[tuple[str, str]] = [
-            re.match(pattern, row).group(1, 2) for row in rows]
+        connections = []
+        for row in file.read().splitlines():
+            if (match := re.match(pattern, row)) is not None:
+                connections.append(match.group(1, 2))
         return CaveSystem(connections)
 
 

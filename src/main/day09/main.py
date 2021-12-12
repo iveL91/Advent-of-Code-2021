@@ -7,9 +7,12 @@ import math
 
 class Heightmap(list[list[int]]):
     """Heightmap."""
-    low_point_positions: list[tuple[int, int]] = None
-    low_points: list[int] = None
-    basins: dict[tuple[int, int], set[tuple[int, int]]] = None
+
+    def __init__(self, *args) -> None:
+        super().__init__(*args)
+        self.low_point_positions: list[tuple[int, int]] = None
+        self.low_points: list[int] = None
+        self.basins: dict[tuple[int, int], set[tuple[int, int]]] = None
 
     def determine_low_points(self) -> None:
         """Determines the low points of the heightmap."""

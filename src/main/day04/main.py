@@ -15,12 +15,11 @@ class BoardSquare(NamedTuple):
 class Board(list[list[BoardSquare]]):
     """Board."""
     board_length: int = 5
-    number: int
-    _won_instruction: int = None
 
     def __init__(self, rows: list[str], number: int) -> None:
         super().__init__()
-        self.number = number
+        self.number: int = number
+        self._won_instruction: int = None
         pattern = re.compile(r"\d+")
         for row in rows:
             matches = [BoardSquare(int(number)) for number in
@@ -59,7 +58,7 @@ class Board(list[list[BoardSquare]]):
                                                                 True)
 
     def _is_won(self) -> bool:
-        return self._won_instruction \
+        return self._won_instruction is not None \
                or self._is_won_on_row() \
                or self._is_won_on_column()
 

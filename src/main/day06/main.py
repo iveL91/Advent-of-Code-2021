@@ -11,12 +11,10 @@ class LanternfishSchool:
     initial_evolution_period: int = 9
     evolution_period: int = 7
 
-    initial_ages_of_lanternfishes: list[int]
-    amount_of_lanternfishes: int
-
     def __init__(self, initial_ages_of_lanternfishes: list[int]) -> None:
-        self.initial_ages_of_lanternfishes = initial_ages_of_lanternfishes
-        self.amount_of_lanternfishes = len(initial_ages_of_lanternfishes)
+        self.initial_ages_of_lanternfishes: list[
+            int] = initial_ages_of_lanternfishes
+        self.amount_of_lanternfishes: int = len(initial_ages_of_lanternfishes)
 
     def get_amount_of_lanternfish(self, days: int) -> int:
         """Get amount of lanternfish for given amount of days

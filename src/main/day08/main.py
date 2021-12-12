@@ -20,12 +20,12 @@ class Decoder:
         8: "abcdefg",
         9: "abcdfg"
     }
-    wiring_old_new: dict[str, str] = {letter: None for letter in
-                                      displayable_letters}
-    display_to_numbers: dict[str, int] = None
 
     def __init__(self, encoded_numbers: list[str]) -> None:
         self.encoded_numbers = encoded_numbers
+        self.wiring_old_new: dict[str, str] = {letter: None for letter in
+                                               self.displayable_letters}
+        self.display_to_numbers: dict[str, int] = None
 
     def determine_wiring(self) -> None:
         """Determines the connection between the original layout and the new
@@ -89,10 +89,9 @@ def data_input(filename: str = "data") -> list[tuple[list[str], list[str]]]:
     :return: List of list with encoded numbers and encoded output value
     """
     with open(filename) as file:
-        rows = file.read().splitlines()
         pattern = re.compile(r"([a-z]+)")
         result: list[tuple[list[str], list[str]]] = []
-        for row in rows:
+        for row in file.read().splitlines():
             matches = re.findall(pattern, row)
             result.append((matches[:10], matches[10:]))
         return result
