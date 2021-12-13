@@ -7,7 +7,7 @@ import unittest
 from src.main.day12.main import data_input, part_1, part_2
 
 
-class TestDay11(unittest.TestCase):
+class TestDay12(unittest.TestCase):
     """Test class for day 12."""
 
     directory: str = "../test/day12/"

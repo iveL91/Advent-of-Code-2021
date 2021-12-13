@@ -80,10 +80,10 @@ def part_2(cave_system: CaveSystem) -> int:
 
 def main() -> None:
     """Main function."""
-    octopuses_grid = data_input()
-    print(part_1(octopuses_grid))
-    octopuses_grid = data_input()
-    print(part_2(octopuses_grid))
+    cave_system = data_input()
+    print(part_1(cave_system))
+    cave_system = data_input()
+    print(part_2(cave_system))
 
 
 if __name__ == "__main__":
