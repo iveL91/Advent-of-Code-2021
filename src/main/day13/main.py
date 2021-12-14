@@ -88,8 +88,9 @@ def data_input(filename: str = "data") -> \
         instructions: list[FoldingInstruction] = []
         pattern = re.compile(r"[xy]=\d+")
         for row in rows[split_index + 1:]:
-            axis, index = re.search(pattern, row).group(0).split("=")
-            instructions.append(FoldingInstruction(axis, int(index)))
+            if (match := re.search(pattern, row)) is not None:
+                axis, fold_index = match.group(0).split("=")
+                instructions.append(FoldingInstruction(axis, int(fold_index)))
         return Paper(dots), instructions
 
 
